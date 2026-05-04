@@ -1,0 +1,15 @@
+services:
+  neo4j:
+    image: neo4j:5.13
+    container_name: hm-neo4j
+    ports:
+      - "7474:7474"
+      - "7688:7687"
+    environment:
+      NEO4J_AUTH: neo4j/password123
+    volumes:
+      - neo4j_data:/data
+      - ./data/clean:/var/lib/neo4j/import
+
+volumes:
+  neo4j_data:
